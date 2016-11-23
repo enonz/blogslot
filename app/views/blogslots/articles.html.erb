@@ -1,15 +1,15 @@
 <article id="home">
 	<div id="section">
 		<div id="list_articles">
+	<h1 id="page_title">Daftar Artikel</h1><br/>
+		<dl>
 		<% @articles.each do |v| %>
-				<h3 id="title"><%=v.title%></h3>
-		  		<p id="content"><%=v.content[0..100]%> <a href="<%=v.id%>" id="read_more">read more ...</a></p>
+				<dt id="title"><b><%=v.title%></b></dt>
+		  		<dd id="content"><%=v.content[0..100]%> <a href="<%=v.id%>" id="read_more">read more ...</a></dd>
+		  		<br/>
 		<% end %>
+		</dl>
 		</div>
-		<div id='aside'>
-			<h3>About Me</h3>
-			<p>Ainun Jariya<br/>
-			FB: ainuyasa</p>
-		</div>
+		<%= render 'aside' %>
 	</div>
 </article>

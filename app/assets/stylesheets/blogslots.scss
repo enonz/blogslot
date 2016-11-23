@@ -3,7 +3,7 @@ body{
 	margin:0px;
 }
 #welcome {
-	height: 700px;
+	height: 450px;
 	background-image: url('bg.jpg');
 }
 .nav{
@@ -44,6 +44,12 @@ nav li a:hover{
 	margin-left: 20px;
 	padding:20px;
 }
+#count_comments{
+	text-align: right;
+}
+#count_comments > a{
+	color: blue;
+}
 article > div#last_article > #title{
 	text-align: center;
 }
@@ -67,4 +73,11 @@ article > div#last_article > #title{
 }
 #signup{
 	text-align: center;
+}
+#page_title{
+	text-align: center;
+}
+#messages{
+	text-align: center;
+	color:red;
 }

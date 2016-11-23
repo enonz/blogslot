@@ -3,7 +3,7 @@ class BlogslotsController < ApplicationController
   def index
     @article = Article.last
     @articles = Article.where('id!=?',@article.id).first(5).reverse
-    @comments = Comment.select('user_id,content').where('article_id=?',@article.id)
+    @count_comments = Comment.where('article_id=?',@article.id).count
   end
 
   def articles
@@ -13,17 +13,10 @@ class BlogslotsController < ApplicationController
   def show
   	id_article = params['id']
   	@article = Article.find id_article
+    @comments = Comment.where('article_id=?',@article.id)
+
 
   end
 
-  def post_comment
-  	raise params.inspect
-  	id_article = params['id']
-  	comments = params['comment']
-  	comment = Comment.new
-  	comment.content = comments
-  	comment.article_id = id_article
-  	comment.save
-  end
 
 end

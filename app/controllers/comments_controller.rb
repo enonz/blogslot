@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :verify_authenticity_token
   # GET /comments
   # GET /comments.json
   def index
@@ -25,14 +25,15 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     if user_signed_in?
-      @comment = Comment.new(comment_params)
-      respond_to do |format|
+      @comment = Comment.new
+      @comment.content = params['content']
+      @comment.article_id = params['article_id'].to_i
+      @comment.user_id = params['user_id'].to_i
         if @comment.save
-          redirect_to root
+          redirect_to root_path, notice: 'berhasil membuat komentar'
         else
           redirect_back(fallback_location: root_path)
         end
-      end
     else
       redirect_back(fallback_location: root_path)
     end

@@ -3,19 +3,32 @@
 
 		<h2 id="title"><%=@article.title%></h2>
 		<p id="content"><%=@article.content%></p>
+		<p id="count_comments"><%=@comments.count rescue 0%> Komentar</p>
 
 	</div>
 
 	<fieldset id="comment">
 		<legend>Komentar</legend>
-		<form>
-			<textarea name="comment" maxlength="200" id="text-comment"></textarea><br/>
-			<input type="submit" name="send" id="send" value="Kirim"class="btn btn-primary">
-		</form>
-	</fieldset>
+		<%if user_signed_in?%>
+				<div id="messages">
+			      <%= render 'layouts/messages'%>
+			    </div>
+			<form method='post' action='/'>
+				<input type='hidden' name="article_id" value="<%=@article.id%>"/>
+				<input type='hidden' name="user_id" value="<%=current_user.id if user_signed_in? %>"/>
 
-	<p><b>User Name</b><br/>
-	Comment</p>
+				<textarea name="content" maxlength="200" id="text-comment" placeholder="komentar anda .."></textarea><br/>
+				<input type="submit" name="send" id="send" value="Kirim" class="btn btn-primary">
+			</form>
+			<br/>
+		<%end%>
+		<%if @comments.blank?
+		 	%>tidak ada komentar<%
+		 else
+		  @comments.each do |c|%>
+			<dl><dt><b><%=c.user.email%></b></dt><dd><%=c.content%></dd></dl>
+		<%end end%>
+	</fieldset>
 	
 
 	

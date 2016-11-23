@@ -9,6 +9,22 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div id="welcome">
+  <nav >
+      <li><a href="/">Home</a></li>
+      <!-- <li><%#= link_to('Article',article_lists_url)%></li> -->
+    <%if user_signed_in? %>
+      <li><%= link_to('Manage Article',articles_path) if current_user.admin?%></li>
+      <li><%= link_to('Logout', 'users/logout') %></li>
+
+    <%else%>
+      <li><%=link_to('Login',new_user_session_path) %></li>
+      <li><%=link_to('Sign Up',new_user_registration_path) %></li>
+    <%end%>
+    </nav>
+    </div>
+    <section style="margin-top:100px;">
+    	<%= yield %>
+    </section>
   </body>
 </html>
