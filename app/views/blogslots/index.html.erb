@@ -1,0 +1,39 @@
+<article id="home">
+	<div id="last_article">
+
+		<h2 id="title"><%=@article.title%></h2>
+		<p id="content"><%=@article.content%></p>
+
+	</div>
+
+	<fieldset id="comment">
+		<legend>Komentar</legend>
+		<form method='post' action='/'>
+			<input type='hidden' name="article_id" value="<%=@article.id%>"/>
+			<input type='hidden' name="user_id" value="<%=current_user.id if user_signed_in? %>"/>
+			<textarea name="content" maxlength="200" id="text-comment"></textarea><br/>
+			<input type="submit" name="send" id="send" value="Kirim" class="btn btn-primary">
+		</form>
+	</fieldset>
+<%if !@comments
+ 	puts '<p>Tidak ada komentar</p>'
+ else
+  @comments.each do |c|%>
+	<p><b><%=c.users.email%></b><br/><%=c.content%></p>
+<%end end%>
+	<hr/>
+	<div id="section">
+		<div id="list_articles">
+		<% @articles.each do |v| %>
+				<h3 id="title"><%=v.title%></h3>
+		  		<p id="content"><%=v.content[0..100]%> <a href="<%=v.id%>" id="read_more">read more ...</a></p>
+		<% end %>
+		</div>
+		<div id="aside">
+			<h3>About Me</h3>
+			<hr/>
+			<p>Ainun Jariya<br/>
+			FB: ainuyasa</p>
+		</div>
+	</div>
+</article>
