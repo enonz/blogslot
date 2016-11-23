@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
         if @comment.save
           redirect_to root_path, notice: 'berhasil membuat komentar'
         else
-          redirect_back(fallback_location: root_path)
+          redirect_back(fallback_location: article_lists_path)
         end
     else
       redirect_back(fallback_location: root_path)
