@@ -1,13 +1,15 @@
+<article id="home">
 <p id="notice"><%= notice %></p>
 
-<h1>Articles</h1>
-
-<table>
+<h1 id="page_title">Daftar Artikel</h1>
+<center>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>Image</th>
+      <th>Judul</th>
+      <th>Kategori</th>
+      <th>Isi</th>
+      <th>Gambar</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,16 +18,18 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
+        <td><%= article.categories.name rescue nil %></td>
         <td><%= article.content %></td>
         <td><%= article.image %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '<i class="fa fa-eye"></i> Detail'.html_safe, article %></td>
+        <td><%= link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_article_path(article) %></td>
+        <td><%= link_to '<i class="fa fa-remove"></i> Hapus'.html_safe, article, method: :delete, data: { confirm: 'Yakin akan menghapus?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</center>
 <br>
 
-<%= link_to 'New Article', new_article_path %>
+<%= link_to 'Artikel Baru', new_article_path, { class:'btn btn-default', style:"float:right;"} %>
+</article>

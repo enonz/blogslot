@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset = "UTF-8"/>
+<title>New Better Life</title>
+</head>
+<body>
+<section>
+<%=
+ini_method
+@ini_ivar = 'string dari ivar'
+ini_hash = {}
+ini_array = []
+ini_hash2 = Hash.new(0)
+ini_array2 = Array.new(0)
+ini_hash2['name'] = 'Ainun Jariya'
+ini_array2[0] = 'Jariya Ainun'
+ini_hash2.foreach do |k,v|
+  puts k+' isinya '+v
+end
+ini_array2.foreach do |v|
+  puts v
+end
+print ini_hash2.keys
+print ini_array2.values
+ini_hash2.values.include? 'Ainun Jariya'
+def ini_method
+  10.times do puts 'I Love You' end
+  'love ' * 20
+end
+
+ini_array2.values.each do |v| ini_array[] << v end
+
+ini_hash3 = {:abc => 'abc',:bca => 'bca', :cab => 'cab'}
+print ini_hash3[:abc].reverse
+print ini_array2.reverse.join
+
+puts 5.year.ago
+puts 10.days.from_now
+puts (21*12+2).months.ago
+
+ini_array2.max
+ini_array2.sort
+ini_array2.sort!
+
+ini_hash2.values.max
+
+
+
+%>
+</section>
+</body>
+</html>

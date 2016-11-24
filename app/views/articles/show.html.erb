@@ -1,19 +1,24 @@
+<article id="home">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>Judul:</strong>
   <%= @article.title %>
 </p>
-
 <p>
-  <strong>Content:</strong>
+  <strong>Kategori:</strong>
+  <%= @article.categories.name rescue nil %>
+</p>
+<p>
+  <strong>Konten:</strong>
   <%= @article.content %>
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>Gambar:</strong>
   <%= @article.image %>
 </p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Edit', edit_article_path(@article),{class:'btn btn-default', style:'float:right;'} %>
+<%= link_to 'Back', articles_path, {class:'btn btn-default', style:'float:left;'} %>
+</article>

@@ -1,0 +1,8 @@
+<article id="home">
+<center><h1>Mengubah Kategori</h1></center>
+<br/>
+<%= render 'form', category: @category %>
+
+<%= link_to 'Show', @category,{class:"btn btn-default btn-lg", style:'float:right;'} %> 
+<%= link_to 'Back', categories_path,{class:"btn btn-default btn-lg", style:'float:left;'} %>
+</article>

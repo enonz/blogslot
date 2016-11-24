@@ -4,27 +4,54 @@
     <title>Blogslot</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'bootstrap.min' %>
+    <%= stylesheet_link_tag    'application' %>
+    <%= stylesheet_link_tag    'fa470/css/font-awesome.min' %>
+
   </head>
 
   <body>
   <div id="welcome">
-  <nav >
-      <li><a href="/">Home</a></li>
-      <!-- <li><%#= link_to('Article',article_lists_url)%></li> -->
-    <%if user_signed_in? %>
-      <li><%= link_to('Manage Article',articles_path) if current_user.admin?%></li>
-      <li><%= link_to('Logout', 'users/logout') %></li>
+  <nav class='navbar navbar-fixed-top'>
+      <div class="container-fluid">
+    <%
 
-    <%else%>
-      <li><%=link_to('Login',new_user_session_path) %></li>
-      <li><%=link_to('Sign Up',new_user_registration_path) %></li>
-    <%end%>
+      @active_art,@active_log,@active_sig,@active_cat,@active_arts = ''
+      if (controller.action_name == 'articles' && controller.controller_name == 'blogslots')
+        @active_art = 'color:gold;'
+      elsif (controller.controller_name == 'sessions')
+        @active_log = 'color:gold;'
+      elsif (controller.controller_name == 'registrations')
+        @active_sig = 'color:gold;'
+      elsif (controller.controller_name == 'articles')
+        @active_arts = 'color:gold;'
+      elsif (controller.controller_name == 'categories')
+        @active_cat = 'color:gold;'
+      end
+    %>
+        <li><a href="/" <%="style='color:gold;'".html_safe if controller.action_name == 'index' && controller.controller_name == 'blogslots' %> ><i class="fa fa-home"></i> Home</a></li>
+        <li><%= link_to('Artikel',article_lists_url, { style:"#{@active_art}" } )%></li>
+      <%if user_signed_in? %>
+        <li><%= link_to('Kelola Artikel',articles_path, { style:"#{@active_arts}" }) if current_user.admin?%></li>
+        <li><%= link_to('Kelola Kategori',categories_path, { style:"#{@active_cat}" }) if current_user.admin?%></li>
+        <div class='right'>
+          <li><%= link_to('Logout <i class="fa fa-power-off fa-lg"></i>'.html_safe, 'users/logout') %></li>
+        </div>
+      <%else%>
+        <div class='right'>
+          <li><%=link_to('<i class="fa fa-power-on"></i> Login'.html_safe,new_user_session_path, { style:"#{@active_log}" }) %></li>
+          <li><%=link_to('Signup',new_user_registration_path, { style:"#{@active_sig}" }) %></li>
+        </div>
+      <%end%>
+      </div>
     </nav>
     </div>
     <section style="margin-top:100px;">
     	<%= yield %>
     </section>
+
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'bootstrap.min' %>
   </body>
 </html>

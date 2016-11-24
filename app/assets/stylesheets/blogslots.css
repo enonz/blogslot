@@ -1,0 +1,95 @@
+body{
+	padding:0px;
+	margin:0px;
+	font-family: 'Sans Seriff';
+}
+#welcome {
+	height: 450px;
+	background-image: url('bg.jpg');
+}
+
+.nav{
+	position: fixed;
+}
+nav{
+	float:right;
+	/*font-size: 15px;*/
+	background-color: black;
+	opacity: 0.7;
+	padding:20px;
+}
+nav li{
+  display: inline;
+  
+}
+nav li a:link{
+	padding:20px;
+	color: white;
+	text-decoration: none;
+}
+nav li a:hover{
+	/*font-size: 17px;*/
+	color: gold;
+}
+nav li a:active{
+	/*font-size: 17px;*/
+	color: gold;
+}
+.active{
+	color:gold;
+}
+#home{
+	margin:100px;
+}
+#read_more{
+	color:red;
+	text-decoration: none;
+	font-style: italic;
+}
+#comment{
+	border: 1px #aaa solid;
+	border-radius: 5px;
+	width:76%;
+	margin-left: 20px;
+	padding:20px;
+}
+#count_comments{
+	text-align: right;
+}
+#count_comments > a{
+	color: blue;
+}
+article > div#last_article > #title{
+	text-align: center;
+}
+#section{
+	width:100%;
+}
+#list_articles{
+	width:80%;
+	float:left;
+}
+#aside{
+	width:20%;
+	float:right;
+	text-align: center;
+}
+#send{
+	float:right;
+}
+#text-comment{
+	width:100%;
+}
+#signup{
+	text-align: center;
+}
+#page_title{
+	text-align: center;
+}
+#messages{
+	text-align: center;
+	color:red;
+}
+.right{
+	float: right;
+}

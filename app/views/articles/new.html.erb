@@ -1,5 +1,7 @@
-<h1>New Article</h1>
+<article id="home">
+<center><h1>Artikel Baru</h1></center>
 
 <%= render 'form', article: @article %>
 
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Back', articles_path, {class:'btn btn-default'} %>
+</article>

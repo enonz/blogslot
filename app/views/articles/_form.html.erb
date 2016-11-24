@@ -11,22 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class:'form-control' %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.select :category_id, Category.all.collect{|v| [v.name,v.id]}, {class:'form-control'} %>
   </div>
 
   <div class="field">
     <%= f.label :content %>
-    <%= f.text_field :content %>
+    <%= f.text_field :content, class:'form-control' %>
   </div>
 
   <div class="field">
     <%= f.label :image %>
-    <%= f.text_field :image %>
+    <%= f.file_field :image, class:'form-control' %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <input type="submit" name="submit" value="Simpan" class="btn btn-primary">
   </div>
 <% end %>

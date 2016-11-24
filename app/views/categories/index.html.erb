@@ -1,0 +1,29 @@
+<article id="home">
+<p id="notice"><%= notice %></p>
+
+<h1><center>Daftar Kategori</center></h1>
+<center>
+<table class="table table-hover" style="width:60%;">
+  <thead>
+    <tr>
+      <th>Kategori</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to '<i class="fa fa-eye"></i> Detail'.html_safe, category %></td>
+        <td><%= link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_category_path(category) %></td>
+        <!-- <td><%#= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</center>
+<br>
+
+<%= link_to 'Kategori Baru', new_category_path, {class:"btn btn-default btn-lg", style:'float:right;'} %>
+</article>
