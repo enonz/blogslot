@@ -1,4 +1,7 @@
 <article id="home">
+	<div id="messages">
+		<%= render 'layouts/messages'%>
+	</div>
 	<div id="last_article">
 
 		<h2 id="title"><%=@article.title%></h2>
@@ -8,10 +11,8 @@
 	<%if user_signed_in?%>
 	<fieldset id="comment">
 		<legend>Komentar</legend>
-				<div id="messages">
-			      <%= render 'layouts/messages'%>
-			    </div>
-			<form method='post' action='/'>
+				
+			<form method='post' action='/commenting'>
 				<input type='hidden' name="article_id" value="<%=@article.id%>"/>
 				<input type='hidden' name="user_id" value="<%=current_user.id if user_signed_in? %>"/>
 				<textarea name="content" maxlength="200" id="text-comment" placeholder="komentar anda .."></textarea><br/>
@@ -31,6 +32,7 @@
 		  		<dd id="content"><%=v.content[0..100]%> <a href="<%=v.id%>" id="read_more">read more ...</a></dd>
 		<% end %>
 		</dl>
+		<%= paginate @articles%>
 		</div>
 		<%=render 'aside' %>
 	</div>

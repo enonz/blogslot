@@ -1,4 +1,7 @@
 <article id="home">
+	<div id="messages">
+		<%= render 'layouts/messages'%>
+	</div>
 	<div id="last_article">
 
 		<h2 id="title"><%=@article.title%></h2>
@@ -10,9 +13,7 @@
 	<fieldset id="comment">
 		<legend>Komentar</legend>
 		<%if user_signed_in?%>
-				<div id="messages">
-			      <%= render 'layouts/messages'%>
-			    </div>
+				
 			<form method='post' action='/'>
 				<input type='hidden' name="article_id" value="<%=@article.id%>"/>
 				<input type='hidden' name="user_id" value="<%=current_user.id if user_signed_in? %>"/>

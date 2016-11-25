@@ -21,3 +21,36 @@
 
 en:
   hello: "Hello world"
+  categories:
+    create:
+      success: 'berhasil menyimpan'
+      error: 'gagal menyimpan'
+  activerecord:
+    errors:
+      models:
+        category:
+          attributes:
+            name:
+              blank: 'tidak boleh kosong'
+        comment:
+          attributes:
+            content:
+              blank: 'tidak boleh kosong'
+        article:
+          attributes:
+            title:
+              blank: 'tidak boleh kosong'
+            content:
+              blank: 'tidak boleh kosong'
+    models:
+      user: Pengguna
+      category: Kategori
+      article: Artikel
+      comment: Komentar
+    attributes:
+      category:
+        name: 'Kategori'
+      article:
+        title: 'Judul'
+        content: 'Konten'
+        image: 'Gambar'

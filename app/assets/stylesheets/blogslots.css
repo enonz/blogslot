@@ -59,7 +59,7 @@ nav li a:active{
 #count_comments > a{
 	color: blue;
 }
-article > div#last_article > #title{
+article > fieldset#last_article > #title{
 	text-align: center;
 }
 #section{

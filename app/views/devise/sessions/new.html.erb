@@ -1,10 +1,11 @@
 <article id="home">
-<div id='signup'>
-<h2>Log in</h2>
-  <div id="messages">
+<div id="messages">
       <%= render 'layouts/messages'%>
       <%= devise_error_messages!%>
   </div>
+<div id='signup'>
+<h2>Log in</h2>
+  
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />

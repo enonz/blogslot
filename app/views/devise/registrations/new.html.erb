@@ -1,10 +1,11 @@
 <article id="home">
-<div id='signup'>
-  <h2>Sign up</h2>
-  <div id="messages">
+<div id="messages">
       <%= render 'layouts/messages'%>
       <%= devise_error_messages!%>
   </div>
+<div id='signup'>
+  <h2>Sign up</h2>
+  
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
