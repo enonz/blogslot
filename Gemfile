@@ -55,4 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'seed_dump'
 gem "kaminari"
-gem 'kaminari'
+gem 'breadcrumbs_on_rails'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"

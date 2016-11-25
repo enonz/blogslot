@@ -2,9 +2,15 @@
 	<div id="messages">
 		<%= render 'layouts/messages'%>
 	</div>
+	<ol class="breadcrumb">
+		<%= render_breadcrumbs tag: :li%>
+		<li><%=@article.id%></li>
+	</ol>
 	<div id="last_article">
 
-		<h2 id="title"><%=@article.title%></h2>
+		<h2 id="page_title"><%=@article.title%></h2>
+		<center><%= image_tag @article.image.url(:medium) if @article.image.exists?%></center><br/>
+		<p>Kategori: <em><%=@article.category.name%></em></p>
 		<p id="content"><%=@article.content%></p>
 		<p id="count_comments"><%=@comments.count rescue 0%> Komentar</p>
 

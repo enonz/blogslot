@@ -18,9 +18,9 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
-        <td><%= article.categories.name rescue nil %></td>
+        <td><%= article.category.name rescue nil %></td>
         <td><%= article.content %></td>
-        <td><%= article.image %></td>
+        <td><%= image_tag article.image.url(:medium) if article.image.exists?%></td>
         <td><%= link_to '<i class="fa fa-eye"></i> Detail'.html_safe, article %></td>
         <td><%= link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_article_path(article) %></td>
         <td><%= link_to '<i class="fa fa-remove"></i> Hapus'.html_safe, article, method: :delete, data: { confirm: 'Yakin akan menghapus?' } %></td>

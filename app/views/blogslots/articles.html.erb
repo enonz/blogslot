@@ -1,15 +1,30 @@
 <article id="home">
+<div id="messages">
+		<%= render 'layouts/messages'%>
+	</div>
+	<ol class="breadcrumb">
+		<%= render_breadcrumbs tag: :li%>
+		<li>Artikel</li>
+	</ol>
 	<div id="section">
-		<div id="list_articles">
-	<h1 id="page_title">Daftar Artikel</h1><br/>
-		<dl>
-		<% @articles.each do |v| %>
-				<dt id="title"><b><%=v.title%></b></dt>
-		  		<dd id="content"><%=v.content[0..100]%> <a href="/<%=v.id%>" id="read_more">read more ...</a></dd>
-		  		<br/>
-		<% end %>
-		</dl>
+		<div id="list_articles" class='col-md-12'>
+		<h1 id="page_title">Daftar Artikel</h1><br/>
+		  
+			<dl>
+			<% @articles.each do |v| %>
+				<div class="col-md-2" style="float:left;">
+				  	<dd><%= image_tag v.image.url(:thumb) if v.image.exists?%></dd>
+				</div>
+				<div class="col-md-10" style="float:right;">
+					<dt id="title"><strong><%=v.title%></strong> <em>(kategori: <%=v.category.name%>)</em></dt>
+			  		<dd id="content"><%=v.content[0..100]%> <a href="/<%=v.id%>" id="read_more">read more ...</a></dd>
+			  	</div>
+			  	<br/>
+			  	<hr/>
+			<% end %>
+			</dl>
+		  <%= paginate @articles%>
 		</div>
-		<%= render 'aside' %>
+			<%= render 'aside' %>
 	</div>
 </article>

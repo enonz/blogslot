@@ -1,6 +1,13 @@
 		<div id="aside">
-			<h3>About Me</h3>
+			<h3>Kategori</h3>
 			<hr/>
-			<p>Ainun Jariya<br/>
-			FB: ainuyasa</p>
+			<dl class="dl-vertical">
+				<%Category.all.each do |cat| %>
+				<dt><%= cat.name %></dt>
+					<% Article.select('title').where('category_id=?',cat.id).order('id DESC').each do |art| %>
+						<dd><a href="<%=art.id%>"><%= art.title%></a></dd>
+					<% end %>
+				<% end %>
+				<br/>
+			</dl>
 		</div>

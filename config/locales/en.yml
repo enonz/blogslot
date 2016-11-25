@@ -54,3 +54,8 @@ en:
         title: 'Judul'
         content: 'Konten'
         image: 'Gambar'
+        category_id: 'Kategori'
+      comment:
+        content: 'Komentar'
+        user_id: 'Pengguna'
+        article_id: 'Artikel'

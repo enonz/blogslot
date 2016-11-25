@@ -8,7 +8,6 @@
     <%= stylesheet_link_tag    'bootstrap.min' %>
     <%= stylesheet_link_tag    'blogslots' %>
     <%= stylesheet_link_tag    'fa470/css/font-awesome.min' %>
-    <%= javascript_include_tag 'bootstrap.min' %>
     <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
@@ -40,7 +39,7 @@
         <li><%= link_to('Kelola Artikel',articles_path, { style:"#{@active_arts}" }) if current_user.admin?%></li>
         <li><%= link_to('Kelola Kategori',categories_path, { style:"#{@active_cat}" }) if current_user.admin?%></li>
         <div class='right'>
-          <li><%= link_to('Logout <i class="fa fa-power-off fa-lg"></i>'.html_safe, 'users/logout') %></li>
+          <li><%= link_to('Logout <i class="fa fa-power-off fa-lg"></i>'.html_safe, users_logout_path) %></li>
         </div>
       <%else%>
         <div class='right'>
@@ -55,7 +54,7 @@
     
       <%= yield %>
   </section>
-    
-
+    <%= javascript_include_tag 'jquery.min' %>
+    <%= javascript_include_tag 'bootstrap.min' %>
   </body>
 </html>

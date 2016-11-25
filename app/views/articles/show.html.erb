@@ -1,24 +1,23 @@
 <article id="home">
-<p id="notice"><%= notice %></p>
+<div id="messages">
+      <%= render 'layouts/messages'%>
+    </div>
 
-<p>
-  <strong>Judul:</strong>
-  <%= @article.title %>
-</p>
-<p>
-  <strong>Kategori:</strong>
-  <%= @article.categories.name rescue nil %>
-</p>
-<p>
-  <strong>Konten:</strong>
-  <%= @article.content %>
-</p>
+<dl class="dl-vertical">
+  <dt><strong>Judul:</strong></dt>
+  <dd><%= @article.title %></dd>
 
-<p>
-  <strong>Gambar:</strong>
-  <%= @article.image %>
-</p>
+  <dt><strong>Kategori:</strong></dt>
+  <dd><%= @article.category.name rescue nil %></dd>
 
+  <dt><strong>Konten:</strong></dt>
+  <dd><%= @article.content %></dd>
+  
+  <dt><strong>Gambar:</strong></dt>
+  <dd><%= @article.image %></dd>
+</dl>
+<hr/>
+<br/>
 <%= link_to 'Edit', edit_article_path(@article),{class:'btn btn-default', style:'float:right;'} %>
 <%= link_to 'Back', articles_path, {class:'btn btn-default', style:'float:left;'} %>
 </article>

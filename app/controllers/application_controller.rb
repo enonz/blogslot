@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   	if devise_controller?
   		"blogslot"
   	else
-  		"application"
+  		"blogslot"
   	end
   end
 end

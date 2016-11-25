@@ -11,28 +11,29 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class:'form-control' %>
+  <div class="col-md-12 form-group">
+    <div class="col-md-4"><%= f.label :title %></div>
+    <div class="col-md-8"><%= f.text_field :title, class:'form-control' %></div>
   </div>
 
 
-  <div class="field">
-    <%= f.label :category_id %>
-    <%= f.select :category_id, Category.all.collect{|v| [v.name,v.id]}, {class:'form-control'} %>
+  <div class="col-md-12 form-group">
+    <div class="col-md-4"><%= f.label :category_id %></div>
+    <div class="col-md-8"><%= f.select :category_id, options_for_select(Category.all.collect{|v| [v.name,v.id]},f.object.category_id),{}, {class:'form-control'} %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_field :content, class:'form-control' %>
+  <div class="col-md-12 form-group">
+    <div class="col-md-4"><%= f.label :content %></div>
+    <div class="col-md-8"><%= f.text_area :content, class:'form-control', style:'min-height:300px;' %></div>
   </div>
 
-  <div class="field">
-    <%= f.label :image %>
-    <%= f.file_field :image, class:'form-control' %>
+  <div class="col-md-12 form-group">
+    <div class="col-md-4"><%= f.label :image %></div>
+    <div class="col-md-8"><%= f.file_field :image, class:'form-control' %></div>
   </div>
 
-  <div class="actions">
-    <input type="submit" name="submit" value="Simpan" class="btn btn-primary">
+  <div class="col-md-12 form-group">
+    <div class="col-md-11"></div>
+    <div class="col-md-1"><input type="submit" name="submit" value="Simpan" class="btn btn-primary"></div>
   </div>
 <% end %>

@@ -1,6 +1,9 @@
+<article id="home">
 <h1>Mengubah Artikel</h1>
 
 <%= render 'form', article: @article %>
-
+<hr/>
+<br/>
 <%= link_to 'Show', @article, {class:'btn btn-default',style:'float:right;'} %>
 <%= link_to 'Back', articles_path, {class:'btn btn-default', style:'float:left;'} %>
+</article>

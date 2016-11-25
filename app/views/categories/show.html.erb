@@ -3,11 +3,12 @@
       <%= render 'layouts/messages'%>
     </div>
 
-<p>
-  <strong>Detail Kategori: </strong>
-  <%= @category.name %>
-</p>
-
+<dl class="dl-vertical">
+  <dt><strong>Detail Kategori: </strong></dt>
+  <dd><%= @category.name %></dd>
+</dl>
+<hr/>
+<br/>
 <%= link_to 'Edit', edit_category_path(@category),{class:"btn btn-default btn-lg", style:'float:right;'} %> 
 <%= link_to 'Back', categories_path, {class:"btn btn-default btn-lg", style:'float:left;'} %>
 </article>

@@ -4,7 +4,9 @@
 	</div>
 	<div id="last_article">
 
-		<h2 id="title"><%=@article.title%></h2>
+		<h2 id="page_title"><%=@article.title%></h2>
+		<center><%= image_tag @article.image.url(:medium) if @article.image.exists?%></center><br/>
+		<p>Kategori: <em><%=@article.category.name%></em></p>
 		<p id="content"><%=@article.content%></p>
 		<p id="count_comments"><a href="<%=@article.id%>"><%=@count_comments%> Komentar</a></p>
 	</div>
@@ -27,11 +29,18 @@
 		<div id="list_articles">
 		<h1 id="page_title">Artikel Lain</h1>
 		<dl>
-		<% @articles.each do |v| %>
-				<dt id="title"><b><%=v.title%></b></dt>
-		  		<dd id="content"><%=v.content[0..100]%> <a href="<%=v.id%>" id="read_more">read more ...</a></dd>
-		<% end %>
-		</dl>
+			<% @articles.each do |v| %>
+				<div class="col-md-2" style="float:left;">
+				  	<dd><%= image_tag v.image.url(:thumb) if v.image.exists?%></dd>
+				</div>
+				<div class="col-md-10" style="float:right;">
+					<dt id="title"><strong><%=v.title%></strong> <em>(kategori: <%=v.category.name%>)</em></dt>
+			  		<dd id="content"><%=v.content[0..100]%> <a href="/<%=v.id%>" id="read_more">read more ...</a></dd>
+			  	</div>
+			  	<br/>
+			  	<hr/>
+			<% end %>
+			</dl>
 		<%= paginate @articles%>
 		</div>
 		<%=render 'aside' %>

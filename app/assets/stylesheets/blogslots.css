@@ -2,6 +2,10 @@ body{
 	padding:0px;
 	margin:0px;
 	font-family: 'Sans Seriff';
+	font-size: 17px;
+}
+p{
+	
 }
 #welcome {
 	height: 450px;
@@ -13,7 +17,7 @@ body{
 }
 nav{
 	float:right;
-	/*font-size: 15px;*/
+	font-size: 19px;
 	background-color: black;
 	opacity: 0.7;
 	padding:20px;
@@ -92,4 +96,7 @@ article > fieldset#last_article > #title{
 }
 .right{
 	float: right;
+}
+.dl-vertical dd{
+	margin-left: 80px;
 }
