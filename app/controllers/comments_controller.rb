@@ -30,13 +30,14 @@ class CommentsController < ApplicationController
       @comment.article_id = params['article_id'].to_i
       @comment.user_id = params['user_id'].to_i
       respond_to do |format|
-      if @comment.save
-        format.html { redirect_to root_path, notice: 'berhasil membuat komentar' }
-      else
-        redirect_back(fallback_location: root_path,@comment.errors)
+        if @comment.save
+          format.html { redirect_to root_path, notice: 'berhasil membuat komentar' }
+        else
+          redirect_back(fallback_location: root_path)
+        end
       end
     else
-      redirect_back(fallback_location: root_path,@comment.errors)
+      redirect_back(fallback_location: root_path)
     end
   end
 
