@@ -57,3 +57,5 @@ gem 'seed_dump'
 gem "kaminari"
 gem 'breadcrumbs_on_rails'
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'grape'
+gem 'hashie-forbidden_attributes'
